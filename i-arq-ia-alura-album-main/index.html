@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum Geográfico - Comunidade CPLP</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Sound Control -->
+    <button id="sound-toggle" class="sound-btn" aria-label="Alternar som">
+        <svg class="sound-icon-on" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor"
+                d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.77 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+        </svg>
+        <svg class="sound-icon-off hidden" viewBox="0 0 24 24" width="24" height="24">
+            <path fill="currentColor"
+                d="M12,4L9.91,6.09L12,8.18M4.27,3L3,4.27L7.73,9H3V15H7L12,20V13.27L16.25,17.5C15.58,18 14.83,18.4 14,18.71V20.77C15.38,20.44 16.63,19.78 17.7,18.9L20.73,21.93L22,20.66L4.27,3M14,3.23V5.29C14.73,5.5 15.43,5.83 16.07,6.26L14.59,7.74C14.41,7.65 14.21,7.58 14,7.54V9.54L19,14.54C19,13.7 19,12.85 19,12C19,7.72 16,4.14 14,3.23M16.5,12C16.5,11.2 16.1,10.5 15.5,10.05L14,11.55V12.45L15.46,13.9C15.48,13.28 16.5,12.62 16.5,12Z" />
+        </svg>
+    </button>
+
+    <!-- Navigation Arrows -->
+    <button id="btn-prev" class="nav-btn nav-btn-left" aria-label="Página Anterior">
+        <svg viewBox="0 0 24 24" width="36" height="36">
+            <path fill="currentColor" d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+        </svg>
+    </button>
+    <button id="btn-next" class="nav-btn nav-btn-right" aria-label="Próxima Página">
+        <svg viewBox="0 0 24 24" width="36" height="36">
+            <path fill="currentColor" d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+    </button>
+
+    <!-- Album Container -->
+    <div class="album-viewport" id="album-viewport">
+        <div class="flip-book" id="book">
+
+            <!-- PAGINA 0: CAPA -->
+            <div class="page page-cover" data-density="hard">
+                <div class="page-content cover-content">
+                    <div class="cover-header">
+                        <span class="cover-seal">COLEÇÃO OFICIAL GEOGRÁFICA</span>
+                    </div>
+                    <div class="cover-body">
+
+                        <h1 class="cover-title glitch" data-text="ÁLBUM">ÁLBUM</h1>
+                        <h2 class="cover-subtitle glitch" data-text="CPLP">CPLP</h2>
+
+                        <div
+                            style="margin: 10px 0 20px; font-family: 'Outfit', sans-serif; color: var(--color-dev-blue); font-size: 0.85rem; letter-spacing: 2px; font-weight: 700; background: rgba(31, 83, 229, 0.08); padding: 5px 15px; border-radius: 20px; display: inline-block; border: 1px solid rgba(31, 83, 229, 0.2);">
+                            4 CONTINENTES • 9 PAÍSES • 1 IDIOMA
+                        </div>
+
+                        <div class="cover-art">
+                            <div class="art-grid"></div>
+                            <!-- Floating Mini Cards -->
+                            <div class="mini-card mc-1">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/ao.png" alt="Angola"></div>
+                                <span class="mc-num">#AO</span>
+                            </div>
+                            <div class="mini-card mc-2">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/br.png" alt="Brasil"></div>
+                                <span class="mc-num">#BR</span>
+                            </div>
+                            <div class="mini-card mc-3">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/cv.png" alt="Cabo Verde"></div>
+                                <span class="mc-num">#CV</span>
+                            </div>
+                            <div class="mini-card mc-4">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/gw.png" alt="Guiné-Bissau">
+                                </div><span class="mc-num">#GW</span>
+                            </div>
+                            <div class="mini-card mc-5">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/gq.png" alt="Guiné Equatorial">
+                                </div><span class="mc-num">#GQ</span>
+                            </div>
+                            <div class="mini-card mc-6">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/mz.png" alt="Moçambique"></div>
+                                <span class="mc-num">#MZ</span>
+                            </div>
+                            <div class="mini-card mc-7">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/pt.png" alt="Portugal"></div>
+                                <span class="mc-num">#PT</span>
+                            </div>
+                            <div class="mini-card mc-8">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/st.png"
+                                        alt="São Tomé e Príncipe"></div><span class="mc-num">#ST</span>
+                            </div>
+                            <div class="mini-card mc-9">
+                                <div class="mc-avatar"><img src="https://flagcdn.com/w40/tl.png" alt="Timor-Leste">
+                                </div><span class="mc-num">#TL</span>
+                            </div>
+
+                            <!-- Central Glowing 3D Globe Sphere -->
+                            <div class="tech-sphere">
+                                <div class="sphere-core">
+                                    <svg class="art-logo" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.93 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.81 2h2.95c.32 1.3.8 2.5 1.38 3.56A8.03 8.03 0 0 1 5.07 16zm2.95-8H5.07a8.03 8.03 0 0 1 4.54-3.56C9.03 5.5 8.55 6.7 8.23 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14h-4.68c-.09-.66-.16-1.32-.16-2s.07-1.34.16-2h4.68c.09.66.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.58-1.06 1.06-2.26 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z" />
+                                    </svg>
+                                </div>
+                                <div class="sphere-ring ring-1"></div>
+                                <div class="sphere-ring ring-2"></div>
+                            </div>
+                        </div>
+
+                        <div
+                            style="margin-top: 15px; font-size: 0.75rem; color: #555; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">
+                            ✨ Explorando Províncias, Estados & Arquipélagos ✨<br>
+                            <span style="font-size: 0.65rem; color: #888;">Cultura • Geografia • Biodiversidade</span>
+                        </div>
+
+                        <p class="cover-footer-text" style="margin-top: 10px;">9 NAÇÕES DA COMUNIDADE LUSÓFONA</p>
+                    </div>
+                    <div class="cover-footer">
+                        <span>EDIÇÃO ESPECIAL 2026</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- PAGINA 1: ÍNDICE INTERATIVO (VERTICAL) -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-index">NAVEGAÇÃO RÁPIDA</span>
+                        <h3 class="page-title">Índice CPLP</h3>
+                    </div>
+
+                    <div class="index-scroll-wrapper">
+                        <div class="index-container">
+                            <!-- Moçambique Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title"><img src="bandeiramz.jpeg" alt="🇲🇿"
+                                        style="height: 16px; vertical-align: text-bottom; margin-right: 4px; border-radius: 2px;">
+                                    Moçambique</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-mocambique" data-page="2"><span
+                                            class="idx-region">Norte</span></button>
+                                    <button class="index-btn btn-mocambique" data-page="3"><span
+                                            class="idx-region">Centro</span></button>
+                                    <button class="index-btn btn-mocambique" data-page="4"><span
+                                            class="idx-region">Sul</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Brasil Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇧🇷 Brasil</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-brasil" data-page="5"><span
+                                            class="idx-region">Norte</span></button>
+                                    <button class="index-btn btn-brasil" data-page="6"><span
+                                            class="idx-region">Nordeste</span></button>
+                                    <button class="index-btn btn-brasil" data-page="7"><span
+                                            class="idx-region">Centro-Oeste</span></button>
+                                    <button class="index-btn btn-brasil" data-page="8"><span
+                                            class="idx-region">Sudeste</span></button>
+                                    <button class="index-btn btn-brasil" data-page="9"><span
+                                            class="idx-region">Sul</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Angola Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇦🇴 Angola</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-angola" data-page="10"><span
+                                            class="idx-region">Norte</span></button>
+                                    <button class="index-btn btn-angola" data-page="11"><span
+                                            class="idx-region">Centro</span></button>
+                                    <button class="index-btn btn-angola" data-page="12"><span
+                                            class="idx-region">Leste</span></button>
+                                    <button class="index-btn btn-angola" data-page="13"><span
+                                            class="idx-region">Sul</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Portugal Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇵🇹 Portugal</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-portugal" data-page="14"><span
+                                            class="idx-region">Norte</span></button>
+                                    <button class="index-btn btn-portugal" data-page="15"><span
+                                            class="idx-region">Centro & Tejo</span></button>
+                                    <button class="index-btn btn-portugal" data-page="16"><span
+                                            class="idx-region">Sul</span></button>
+                                    <button class="index-btn btn-portugal" data-page="17"><span class="idx-region">Ilhas
+                                            Autónomas</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Guiné-Bissau Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇬🇼 Guiné-Bissau</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-gb" data-page="18"><span class="idx-region">Norte e
+                                            Leste</span></button>
+                                    <button class="index-btn btn-gb" data-page="19"><span class="idx-region">Sul e
+                                            Bissau</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Cabo Verde Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇨🇻 Cabo Verde</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-cv" data-page="20"><span
+                                            class="idx-region">Barlavento</span></button>
+                                    <button class="index-btn btn-cv" data-page="21"><span
+                                            class="idx-region">Sotavento</span></button>
+                                </div>
+                            </div>
+
+                            <!-- São Tomé e Príncipe Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇸🇹 São Tomé e Príncipe</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-stp" data-page="22"><span class="idx-region">São
+                                            Tomé</span></button>
+                                    <button class="index-btn btn-stp" data-page="23"><span
+                                            class="idx-region">Príncipe</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Guiné Equatorial Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇬🇶 Guiné Equatorial</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-gq" data-page="24"><span
+                                            class="idx-region">Insular</span></button>
+                                    <button class="index-btn btn-gq" data-page="25"><span
+                                            class="idx-region">Continental</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Timor-Leste Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🇹🇱 Timor-Leste</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn btn-tl" data-page="26"><span class="idx-region">Costas
+                                            Norte e Sul</span></button>
+                                    <button class="index-btn btn-tl" data-page="27"><span class="idx-region">Interior &
+                                            Especiais</span></button>
+                                </div>
+                            </div>
+
+                            <!-- Extra Community Section -->
+                            <div class="index-section">
+                                <h4 class="index-country-title">🚀 Comunidade Alura</h4>
+                                <div class="index-grid index-grid-compact">
+                                    <button class="index-btn" data-page="28" style="border-left-color: #1F53E5;"><span
+                                            class="idx-region" style="color: #1F53E5;">Comunidade &
+                                            Projeto</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 1</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 2: MOÇAMBIQUE - REGIÃO NORTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-mocambique-norte"><img src="bandeiramz.jpeg" alt="🇲🇿"
+                                style="height: 12px; vertical-align: middle; margin-bottom: 2px; margin-right: 4px; border-radius: 2px;">
+                            MOÇAMBIQUE</span>
+                        <h3 class="page-title">Região Norte</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-01">
+                            <div class="slot-number">#01</div>
+                            <div class="slot-name">Cabo Delgado</div>
+                            <div class="slot-role">Pemba • Praias e Cultura Makonde</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-02">
+                            <div class="slot-number">#02</div>
+                            <div class="slot-name">Niassa</div>
+                            <div class="slot-role">Lichinga • Lago Niassa e Reservas</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-03">
+                            <div class="slot-number">#03</div>
+                            <div class="slot-name">Nampula</div>
+                            <div class="slot-role">Nampula • Ilha de Moçambique & Patrimônio</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 2</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 3: MOÇAMBIQUE - REGIÃO CENTRO -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-mocambique-centro"><img src="bandeiramz.jpeg" alt="🇲🇿"
+                                style="height: 12px; vertical-align: middle; margin-bottom: 2px; margin-right: 4px; border-radius: 2px;">
+                            MOÇAMBIQUE</span>
+                        <h3 class="page-title">Região Centro</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-04">
+                            <div class="slot-number">#04</div>
+                            <div class="slot-name">Zambézia</div>
+                            <div class="slot-role">Quelimane • Coqueirais e Plantações de Chá</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-05">
+                            <div class="slot-number">#05</div>
+                            <div class="slot-name">Tete</div>
+                            <div class="slot-role">Tete • Rio Zambeze & Cahora Bassa</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-06">
+                            <div class="slot-number">#06</div>
+                            <div class="slot-name">Manica</div>
+                            <div class="slot-role">Chimoio • Cabeça do Velho e Serras</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-07">
+                            <div class="slot-number">#07</div>
+                            <div class="slot-name">Sofala</div>
+                            <div class="slot-role">Beira • Parque Nacional do Gorongosa</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 3</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 4: MOÇAMBIQUE - REGIÃO SUL -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-mocambique-sul"><img src="bandeiramz.jpeg" alt="🇲🇿"
+                                style="height: 12px; vertical-align: middle; margin-bottom: 2px; margin-right: 4px; border-radius: 2px;">
+                            MOÇAMBIQUE</span>
+                        <h3 class="page-title">Região Sul</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-08">
+                            <div class="slot-number">#08</div>
+                            <div class="slot-name">Inhambane</div>
+                            <div class="slot-role">Inhambane • Baía dos Golfinhos e Praia do Tofo</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-09">
+                            <div class="slot-number">#09</div>
+                            <div class="slot-name">Gaza</div>
+                            <div class="slot-role">Xai-Xai • Parque Transfronteiriço do Limpopo</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-10">
+                            <div class="slot-number">#10</div>
+                            <div class="slot-name">Maputo</div>
+                            <div class="slot-role">Reserva Especial de Maputo e Capital</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 4</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 5: BRASIL - REGIÃO NORTE -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-brasil">🇧🇷 BRASIL</span>
+                        <h3 class="page-title">Região Norte</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-12">
+                            <div class="slot-number">#12</div>
+                            <div class="slot-name">Amazônia</div>
+                            <div class="slot-role">Floresta Amazônica e Biodiversidade</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-13">
+                            <div class="slot-number">#13</div>
+                            <div class="slot-role">Belém • Cultura Marajoara e Culinária</div>
+                            <div class="slot-name">Pará</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 5</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 6: BRASIL - REGIÃO NORDESTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-brasil">🇧🇷 BRASIL</span>
+                        <h3 class="page-title">Região Nordeste</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-14">
+                            <div class="slot-number">#14</div>
+                            <div class="slot-name">Bahia</div>
+                            <div class="slot-role">Salvador • História, Axé e Praias</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-15">
+                            <div class="slot-number">#15</div>
+                            <div class="slot-name">Pernambuco</div>
+                            <div class="slot-role">Recife/Olinda • Frevo e Fernando de Noronha</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-16">
+                            <div class="slot-number">#16</div>
+                            <div class="slot-name">Ceará</div>
+                            <div class="slot-role">Fortaleza • Dunas e Praias Paradisíacas</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 6</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 7: BRASIL - CENTRO-OESTE -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-brasil">🇧🇷 BRASIL</span>
+                        <h3 class="page-title">Centro-Oeste</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-17">
+                            <div class="slot-number">#17</div>
+                            <div class="slot-name">Distrito Federal</div>
+                            <div class="slot-role">Brasília • Arquitetura Moderna e Poder</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-18">
+                            <div class="slot-number">#18</div>
+                            <div class="slot-name">Goiás</div>
+                            <div class="slot-role">Goiânia • Cerrado e Chapada dos Veadeiros</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-19">
+                            <div class="slot-number">#19</div>
+                            <div class="slot-name">Mato Grosso</div>
+                            <div class="slot-role">Pantanal • Vida Selvagem e Natureza</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 7</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 8: BRASIL - SUDESTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-brasil">🇧🇷 BRASIL</span>
+                        <h3 class="page-title">Região Sudeste</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-20">
+                            <div class="slot-number">#20</div>
+                            <div class="slot-name">São Paulo</div>
+                            <div class="slot-role">Metrópole • Centro Financeiro e Gastronomia</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-21">
+                            <div class="slot-number">#21</div>
+                            <div class="slot-name">Rio de Janeiro</div>
+                            <div class="slot-role">Cristo Redentor, Pão de Açúcar e Praias</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-22">
+                            <div class="slot-number">#22</div>
+                            <div class="slot-name">Minas Gerais</div>
+                            <div class="slot-role">Cidades Históricas, Montanhas e Culinária</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 8</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 9: BRASIL - SUL -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge badge-brasil">🇧🇷 BRASIL</span>
+                        <h3 class="page-title">Região Sul</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-30">
+                            <div class="slot-number">#30</div>
+                            <div class="slot-name">Paraná</div>
+                            <div class="slot-role">Curitiba • Cataratas do Iguaçu</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-31">
+                            <div class="slot-number">#31</div>
+                            <div class="slot-name">Santa Catarina</div>
+                            <div class="slot-role">Florianópolis • Praias, Ilha da Magia</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-32">
+                            <div class="slot-number">#32</div>
+                            <div class="slot-name">Rio Grande do Sul</div>
+                            <div class="slot-role">Porto Alegre • Gramado, Serra Gaúcha</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 9</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 10: ANGOLA - NORTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #CE1126 0%, #9e0d1d 100%); color: #ffffff; border-left: 3px solid #FCD116;">🇦🇴
+                            ANGOLA</span>
+                        <h3 class="page-title">Região Norte</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-101">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Luanda</div>
+                            <div class="slot-role">Capital • Marginal e Ilha do Cabo</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-102">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Cabinda</div>
+                            <div class="slot-role">Exclave Maiombe</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-103">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Zaire e Uíge</div>
+                            <div class="slot-role">Rio Zaire e Cultura Kikongo</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 10</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 11: ANGOLA - CENTRO -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #CE1126 0%, #9e0d1d 100%); color: #ffffff; border-left: 3px solid #FCD116;">🇦🇴
+                            ANGOLA</span>
+                        <h3 class="page-title">Região Centro</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-104">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Benguela</div>
+                            <div class="slot-role">Praia da Baía Azul</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-105">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Huambo</div>
+                            <div class="slot-role">Planalto Central</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-106">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Cuanza Sul & Bié</div>
+                            <div class="slot-role">Cachoeiras e Coração de Angola</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 11</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 12: ANGOLA - LESTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #CE1126 0%, #9e0d1d 100%); color: #ffffff; border-left: 3px solid #FCD116;">🇦🇴
+                            ANGOLA</span>
+                        <h3 class="page-title">Região Leste</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-107">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Lunda Norte e Sul</div>
+                            <div class="slot-role">Diamantes e Cultura Lunda-Tchokwe</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-108">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Moxico & Moxico Leste</div>
+                            <div class="slot-role">A Maior Região Extensiva</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 12</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 13: ANGOLA - SUL -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #CE1126 0%, #9e0d1d 100%); color: #ffffff; border-left: 3px solid #FCD116;">🇦🇴
+                            ANGOLA</span>
+                        <h3 class="page-title">Região Sul</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-109">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Namibe</div>
+                            <div class="slot-role">Deserto e Welwitschia</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-110">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Huíla</div>
+                            <div class="slot-role">Fenda da Tundavala</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-111">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Cunene e Cuando Cubango</div>
+                            <div class="slot-role">Rio Cunene e Savanas</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 13</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 14: PORTUGAL - NORTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #006600 0%, #004d00 100%); color: #ffffff; border-left: 3px solid #FF0000;">🇵🇹
+                            PORTUGAL</span>
+                        <h3 class="page-title">Região Norte</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-112">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Porto</div>
+                            <div class="slot-role">Ribeira e Vinho do Porto</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-113">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Braga & Guimarães</div>
+                            <div class="slot-role">Berço da Nação</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-114">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Trás-os-Montes</div>
+                            <div class="slot-role">Douro e Paisagens Vinhateiras</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 14</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 15: PORTUGAL - CENTRO -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #006600 0%, #004d00 100%); color: #ffffff; border-left: 3px solid #FF0000;">🇵🇹
+                            PORTUGAL</span>
+                        <h3 class="page-title">Centro & Vale do Tejo</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-115">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Coimbra</div>
+                            <div class="slot-role">Universidade Histórica e Fado</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-116">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Aveiro</div>
+                            <div class="slot-role">A Veneza de Portugal e Ovos Moles</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-117">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Leiria & Viseu</div>
+                            <div class="slot-role">Castelos e Centro Histórico</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 15</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 16: PORTUGAL - SUL -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #006600 0%, #004d00 100%); color: #ffffff; border-left: 3px solid #FF0000;">🇵🇹
+                            PORTUGAL</span>
+                        <h3 class="page-title">Região Sul</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-118">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Lisboa e Setúbal</div>
+                            <div class="slot-role">Capital • Torre de Belém e Arrábida</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-119">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Alentejo</div>
+                            <div class="slot-role">Planícies, Évora e Costa Vicentina</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-120">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Faro (Algarve)</div>
+                            <div class="slot-role">Praias Paradisíacas e Falésias</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 16</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 17: PORTUGAL - ILHAS -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #006600 0%, #004d00 100%); color: #ffffff; border-left: 3px solid #FF0000;">🇵🇹
+                            PORTUGAL</span>
+                        <h3 class="page-title">Ilhas Autónomas</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-121">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Região Autónoma dos Açores</div>
+                            <div class="slot-role">Sete Cidades e Vulcanismo</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-122">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Região Autónoma da Madeira</div>
+                            <div class="slot-role">Funchal e Floresta Laurissilva</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 17</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 18: GUINÉ-BISSAU - NORTE/LESTE -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #CE1126 0%, #9e0d1d 100%); color: #ffffff; border-left: 3px solid #FCD116;">🇬🇼
+                            GUINÉ-BISSAU</span>
+                        <h3 class="page-title">Norte e Leste</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-131">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Província do Norte</div>
+                            <div class="slot-role">Cacheu, Oio e Biombo</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-132">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Província do Leste</div>
+                            <div class="slot-role">Gabu e Bafatá • Savanas</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 18</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 19: GUINÉ-BISSAU - SUL -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #CE1126 0%, #9e0d1d 100%); color: #ffffff; border-left: 3px solid #FCD116;">🇬🇼
+                            GUINÉ-BISSAU</span>
+                        <h3 class="page-title">Sul e Bissau</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-133">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Bissau</div>
+                            <div class="slot-role">Capital • Centro Histórico</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-134">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Província do Sul & Bijagós</div>
+                            <div class="slot-role">Arquipélago dos Bijagós</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 19</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 20: CABO VERDE - BARLAVENTO -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #003893 0%, #00225c 100%); color: #ffffff; border-left: 3px solid #CF2027;">🇨🇻
+                            CABO VERDE</span>
+                        <h3 class="page-title">Ilhas de Barlavento</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-141">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">São Vicente e Santo Antão</div>
+                            <div class="slot-role">Mindelo • Cultura e Montanhas</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-142">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Sal e Boa Vista</div>
+                            <div class="slot-role">Praias, Salinas e Dunas</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 20</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 21: CABO VERDE - SOTAVENTO -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #003893 0%, #00225c 100%); color: #ffffff; border-left: 3px solid #CF2027;">🇨🇻
+                            CABO VERDE</span>
+                        <h3 class="page-title">Ilhas de Sotavento</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-143">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Santiago</div>
+                            <div class="slot-role">Capital Praia • Cidade Velha</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-144">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Fogo, Brava e Maio</div>
+                            <div class="slot-role">Vulcão do Fogo e Ilhas Isoladas</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 21</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 22: SÃO TOMÉ E PRÍNCIPE - SÃO TOMÉ -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #12AD2B 0%, #0d7a1e 100%); color: #ffffff; border-left: 3px solid #FFCE00;">🇸🇹
+                            SÃO TOMÉ E PRÍNCIPE</span>
+                        <h3 class="page-title">Ilha de São Tomé</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-151">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Água Grande (Capital)</div>
+                            <div class="slot-role">São Tomé • Arquitetura Colonial</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-152">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Pico Cão Grande</div>
+                            <div class="slot-role">Lembá • Natureza Selvagem</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 22</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 23: SÃO TOMÉ E PRÍNCIPE - PRÍNCIPE -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #12AD2B 0%, #0d7a1e 100%); color: #ffffff; border-left: 3px solid #FFCE00;">🇸🇹
+                            SÃO TOMÉ E PRÍNCIPE</span>
+                        <h3 class="page-title">Ilha do Príncipe</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-153">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Região Autónoma do Príncipe</div>
+                            <div class="slot-role">Santo António • Biosfera da UNESCO</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-154">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Praia Banana</div>
+                            <div class="slot-role">Praias Paradisíacas e Virgens</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 23</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 24: GUINÉ EQUATORIAL - INSULAR -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #3E9A00 0%, #2b6b00 100%); color: #ffffff; border-left: 3px solid #E32118;">🇬🇶
+                            GUINÉ EQUATORIAL</span>
+                        <h3 class="page-title">Região Insular</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-161">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Bioco (Malabo)</div>
+                            <div class="slot-role">Capital • Ilha Vulcânica</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-162">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Annobón</div>
+                            <div class="slot-role">A Ilha Mais a Sul do Equador</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 24</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 25: GUINÉ EQUATORIAL - CONTINENTAL -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #3E9A00 0%, #2b6b00 100%); color: #ffffff; border-left: 3px solid #E32118;">🇬🇶
+                            GUINÉ EQUATORIAL</span>
+                        <h3 class="page-title">Região Continental</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-163">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Litoral (Bata)</div>
+                            <div class="slot-role">Maior Cidade e Centro Econômico</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-164">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Rio Muni Interior</div>
+                            <div class="slot-role">Florestas Tropicais Densas</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 25</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 26: TIMOR-LESTE - NORTE/SUL -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #FF0000 0%, #cc0000 100%); color: #ffffff; border-left: 3px solid #000000;">🇹🇱
+                            TIMOR-LESTE</span>
+                        <h3 class="page-title">Costas Norte e Sul</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot special-slot" id="slot-171">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Díli e Costa Norte</div>
+                            <div class="slot-role">Capital • Cristo Rei e Baucau</div>
+                        </div>
+                        <div class="sticker-slot" id="slot-172">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Costa Sul</div>
+                            <div class="slot-role">Viqueque e Ainaro • Mar de Timor</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 26</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 27: TIMOR-LESTE - INTERIOR/ESPECIAIS -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <div class="page-header">
+                        <span class="tech-badge"
+                            style="background: linear-gradient(135deg, #FF0000 0%, #cc0000 100%); color: #ffffff; border-left: 3px solid #000000;">🇹🇱
+                            TIMOR-LESTE</span>
+                        <h3 class="page-title">Interior & Especiais</h3>
+                    </div>
+                    <div class="stickers-grid">
+                        <div class="sticker-slot" id="slot-173">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Interior Montanhoso</div>
+                            <div class="slot-role">Aileu e Ermera • Plantações de Café</div>
+                        </div>
+                        <div class="sticker-slot special-slot" id="slot-174">
+                            <div class="slot-number">#</div>
+                            <div class="slot-name">Regiões Especiais</div>
+                            <div class="slot-role">Enclave de Oe-Cusse e Ilha de Ataúro</div>
+                        </div>
+                    </div>
+                    <div class="page-footer">Pág. 27</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 28: COMUNIDADE E PROJETO -->
+            <div class="page page-right">
+                <div class="page-content"
+                    style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; height:100%; padding: 30px;">
+                    <h2
+                        style="font-family: 'Outfit', sans-serif; color: var(--color-deep-blue); font-size: 2.1rem; margin-bottom: 15px;">
+                        Ajude a Completar!</h2>
+                    <p style="color: #444; font-size: 1rem; line-height: 1.4; max-width: 95%;">
+                        Você é de um destes países ou conhece bem as suas regiões? Este álbum é Open Source da
+                        <strong>Comunidade Alura</strong>! Faça um Fork e ajude-nos com fotos e dados.
+                    </p>
+                    <div
+                        style="margin-top: 15px; padding: 15px; background: rgba(31, 83, 229, 0.1); border-radius: 12px; border: 2px dashed var(--color-dev-blue); width: 100%;">
+                        <ul
+                            style="text-align: left; font-size: 0.9rem; color: #555; padding-left: 20px; line-height: 1.4; margin: 0;">
+                            <li>Abra o `README.md` no GitHub</li>
+                            <li>Adicione fotos na pasta `/figurinhas`</li>
+                            <li>Insira os dados no `main.py`</li>
+                            <li>Submeta o Pull Request</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 25px; text-align: left; width: 100%;">
+                        <h4
+                            style="color: var(--color-tech-blue); font-family: 'Outfit', sans-serif; font-size: 1.4rem; margin-bottom: 8px; border-bottom: 1px solid #ddd; padding-bottom: 4px;">
+                            Sobre o Projeto</h4>
+                        <p style="color: #555; font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px;">
+                            Desenvolvido para fortalecer laços entre desenvolvedores lusófonos e partilhar a cultura e
+                            geografia da CPLP.
+                        </p>
+                        <p
+                            style="color: #444; font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; padding-left: 10px; border-left: 3px solid var(--color-dev-blue);">
+                            <strong>Agradecimentos:</strong> Os conhecimentos aplicados para o desenvolvimento deste
+                            projeto foram adquiridos na Imersão IA da Alura.
+                        </p>
+                        <p style="color: #555; font-size: 0.85rem; line-height: 1.4; margin: 0;">
+                            <strong>Autor:</strong> Felton da Silva<br>
+                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/estevafelton/"
+                                target="_blank"
+                                style="color: var(--color-tech-blue); text-decoration: none;">linkedin.com/in/estevafelton</a>
+                        </p>
+                    </div>
+
+                    <div class="page-footer"
+                        style="width: 100%; position:absolute; bottom: 45px; left:0; padding: 0 40px; box-sizing: border-box;">
+                        Pág. 28</div>
+                </div>
+            </div>
+
+            <!-- PAGINA 10: CONTRACAPA -->
+            <div class="page page-cover-back" data-density="hard" style="position: relative;">
+                
+                <!-- QR Code Fork GitHub -->
+                <div class="qr-code-seal" title="Faça Fork no GitHub" style="position: absolute; top: 25px; right: 25px; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/&color=1F53E5&bgcolor=FFFFFF" alt="QR Code GitHub" style="width: 60px; height: 60px; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); border: 2px solid var(--color-dev-blue);">
+                    <span style="color: var(--color-deep-blue); font-size: 0.55rem; font-weight: 800; text-transform: uppercase; margin-top: 5px; font-family: 'Outfit', sans-serif;">Fork Me</span>
+                </div>
+
+                <div class="page-content cover-back-content">
+                    <div class="cover-back-header">
+                        <h2>ÁLBUM GEOGRÁFICO</h2>
+                    </div>
+                    <div class="cover-back-body">
+                        <div class="tech-logo-collage">
+                            <span>🌍 CPLP</span> • <span>9 PAÍSES</span> • <span>COMUNIDADE LUSÓFONA</span>
+                        </div>
+                        <p class="summary-text">
+                            Um tributo interativo à riqueza geográfica, turística e cultural de toda a Comunidade dos
+                            Países de Língua Portuguesa (CPLP).
+                            Conectando províncias, estados, regiões e ilhas das 9 nações irmãs espalhadas pelo globo.
+                        </p>
+                        
+                        <!-- Grelha das 9 Bandeiras -->
+                        <div class="flags-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 90px; margin: 20px auto 15px auto;">
+                            <img src="https://flagcdn.com/w40/ao.png" alt="Angola" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/br.png" alt="Brasil" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/cv.png" alt="Cabo Verde" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/gw.png" alt="Guiné-Bissau" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/gq.png" alt="Guiné Equatorial" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/mz.png" alt="Moçambique" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/pt.png" alt="Portugal" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/st.png" alt="São Tomé e Príncipe" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                            <img src="https://flagcdn.com/w40/tl.png" alt="Timor-Leste" style="width: 100%; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                        </div>
+
+                        <div class="barcode-container">
+                            <div class="barcode">
+                                <div class="bar"></div>
+                                <div class="bar thin"></div>
+                                <div class="bar"></div>
+                                <div class="bar thick"></div>
+                                <div class="bar thin"></div>
+                                <div class="bar"></div>
+                                <div class="bar thick"></div>
+                                <div class="bar"></div>
+                                <div class="bar thin"></div>
+                                <div class="bar thick"></div>
+                            </div>
+                            <span class="barcode-number">9 788575 202699</span>
+                        </div>
+                    </div>
+                    <div class="cover-back-footer">
+                        <span>Edição Especial • CPLP • 2026</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes da Província -->
+    <div id="modal-detalhes" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header" style="display: flex; align-items: center; gap: 15px;">
+                <img id="modal-flag" src="bandeiramz.jpeg" alt="Bandeira de Moçambique"
+                    style="width: 45px; height: 30px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); object-fit: cover;">
+                <h2 id="modal-title">Nome da Província</h2>
+            </div>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Província">
+                <div class="modal-info">
+                    <div class="modal-info-stats">
+                        <p><strong>Capital:</strong> <span id="modal-capital">...</span></p>
+                        <p><strong>Habitantes:</strong> <span id="modal-populacao">...</span></p>
+                    </div>
+
+                    <h3>Curiosidade</h3>
+                    <p id="modal-curiosidade">Carregando...</p>
+
+                    <h3>Distritos</h3>
+                    <div id="modal-distritos" class="chips-container">
+                        <!-- Chips serão inseridos aqui pelo JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Botão Voltar ao Índice -->
+      <button id="btn-back-index" class="fab-index hidden" title="Voltar ao Índice">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+          </svg>
+          <span>Índice</span>
+      </button>
+
+      <!-- Page Flip Library -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+    <!-- Logic -->
+    <script src="app.js"></script>
+</body>
+
+</html>
