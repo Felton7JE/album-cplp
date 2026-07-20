@@ -119,5 +119,4 @@ def obter_detalhes_figurinha(id: int):
             return figurinha
     raise HTTPException(status_code=404, detail="Figurinha não encontrada")
 
-# 7. Servir o Frontend estaticamente (deve ser a ÚLTIMA rota)
-app.mount("/", StaticFiles(directory="i-arq-ia-alura-album-main", html=True), name="frontend")
+# O Frontend é agora servido nativamente pelo Vercel via vercel.json

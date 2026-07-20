@@ -1,0 +1,1 @@
+{"version": 2, "builds": [{"src": "main.py", "use": "@vercel/python"}, {"src": "i-arq-ia-alura-album-main/**", "use": "@vercel/static"}], "rewrites": [{"source": "/", "destination": "/i-arq-ia-alura-album-main/index.html"}, {"source": "/figurinhas(.*)", "destination": "/main.py"}, {"source": "/(.*)", "destination": "/i-arq-ia-alura-album-main/$1"}]}
